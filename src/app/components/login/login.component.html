@@ -1,0 +1,20 @@
+<div class="login-body">
+  <h2>
+    Login
+  </h2>
+  <form>
+      <div>
+          <label>Username</label>
+          <input type="text" class="form-control" name="username" equired />
+      </div>
+      <div>
+          <label>Password</label>
+          <input type="password" class="form-control" name="password" required />
+      </div>
+      <div>
+          <button [disabled]="loading" class="btn btn-primary">Login</button>
+          <img *ngIf="loading" src="" />
+          <a [routerLink]="" class="btn btn-link">Register</a>
+      </div>
+  </form>
+</div>
