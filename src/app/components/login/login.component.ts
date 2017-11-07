@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +7,11 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  model: any = {};
+  loading = false;
+  returnUrl: string;
+
   constructor(
-    private route: ActivatedRoute,
     private router: Router
   ) {}
 
@@ -16,5 +19,14 @@ export class LoginComponent implements OnInit {
     // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     // Add 'implements OnInit' to the class.
 
+  }
+
+  gotoJoin(): void {
+    this.router.navigate(['join']);
+  }
+
+  // work on login function
+  gotoHome(): void {
+    this.router.navigate(['home']);
   }
 }
