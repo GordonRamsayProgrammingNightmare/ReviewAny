@@ -7,13 +7,17 @@ import { JoinComponent } from './components/join/join.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UploadComponent } from './components/upload/upload.component';
 
+import { AuthGuard } from './auth.guard';
+
 const appRouter: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full'},
-  { path: 'home',    component: HomeComponent},
+  { path: '',    component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login',   component: LoginComponent},
   { path: 'join',    component: JoinComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'upload',  component: UploadComponent }
+  { path: 'upload',  component: UploadComponent },
+
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
