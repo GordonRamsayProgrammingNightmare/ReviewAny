@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthenticationService implements OnInit {
 
-  private serverUrl = 'localhost';
+  private serverUrl = 'http://localhost:3000';
   public token: string;
 
   constructor( private http: Http ) {
@@ -21,12 +21,12 @@ export class AuthenticationService implements OnInit {
   }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post(this.serverUrl + '/auth/login', JSON.stringify({ username: username, password: password}))
+    console.log(username, password);
+    return this.http.post(this.serverUrl + '/api/auth/login', JSON.stringify({username: username, password: password}))
       .map((response: Response) => {
         const token = response.json() && response.json().token;
         if (token) {
           this.token = token;
-
           // need to know what to receive (token, user info)
           localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
 
@@ -36,6 +36,7 @@ export class AuthenticationService implements OnInit {
         }
       });
   }
+
 
   logout(): void {
     this.token = null;
