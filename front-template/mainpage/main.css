@@ -13,11 +13,6 @@
     background: transparent;
 }
 
-.btn {
-    border: 0;
-    color: #333333;
-}
-
 .card {
     background: black;
     border: 0;
@@ -37,12 +32,17 @@
     transition: opacity 0.5s
 }
 
-.btn-secondary,
-.btn-primary {
-    background: white;
-    border: 0;
-}
-
 .modal-footer>.container>.text {
     color: #9c9c9c
+}
+
+.btn {
+    background-color: rgba( 255, 255, 255, 0.0);
+    border: 0;
+    color: #333333;
+}
+
+.btn:hover {
+    background-color: rgba( 255, 255, 255, 0.0);
+    color: #333333;
 }
