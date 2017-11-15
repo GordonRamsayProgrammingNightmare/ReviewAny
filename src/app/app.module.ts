@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-
-import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './components/profile/profile.component';
 import { JoinComponent } from './components/join/join.component';
 import { UploadComponent } from './components/upload/upload.component';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationService } from './services/authentication.service';
+import { RegisterService } from './services/register.service';
+
 import { AuthGuard } from './auth.guard';
 
 @NgModule({
@@ -31,7 +33,7 @@ import { AuthGuard } from './auth.guard';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthenticationService, AuthGuard],
+  providers: [AuthenticationService, AuthGuard, RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

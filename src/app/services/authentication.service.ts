@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -9,7 +10,8 @@ export class AuthenticationService implements OnInit {
   private serverUrl = 'http://localhost:3000';
   public token: string;
 
-  constructor( private http: Http ) {
+  constructor( private http: HttpClient
+  ) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
   }
@@ -22,7 +24,10 @@ export class AuthenticationService implements OnInit {
 
   login(username: string, password: string): Observable<boolean> {
     console.log(username, password);
-    return this.http.post(this.serverUrl + '/api/auth/login', JSON.stringify({username: username, password: password}))
+    return this.http.post(this.serverUrl + '/api/auth/login',
+        JSON.stringify({ username: username, password: password}),
+        { headers: new HttpHeaders().set('Content-Type', 'application/json') }
+      )
       .map((response: Response) => {
         const token = response.json() && response.json().token;
         if (token) {
@@ -42,5 +47,4 @@ export class AuthenticationService implements OnInit {
     this.token = null;
     localStorage.removeItem('currentUser');
   }
-
 }
