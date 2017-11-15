@@ -1,0 +1,38 @@
+.stylish-input-group .input-group-addon {
+    background: white !important;
+}
+
+.stylish-input-group .form-control {
+    border-right: 0;
+    box-shadow: 0 0 0;
+    border-color: #ccc;
+}
+
+.stylish-input-group button {
+    border: 0;
+    background: transparent;
+}
+
+.btn {
+    background-color: rgba( 255, 255, 255, 0.0);
+    border: 0;
+    color: #333333;
+}
+
+.btn:hover {
+    background-color: rgba( 255, 255, 255, 0.0);
+    color: #333333;
+}
+
+.col-6{
+    align-content: center;
+    background-color: rgba(249, 249, 249, 0.952);
+}
+.upload{
+    border-style:solid;
+    border-color:#ddd; 
+    border-radius:1em; 
+    width:55em; 
+    background-color: rgba(249, 249, 249, 0.952); 
+    margin-top:3em;
+}
